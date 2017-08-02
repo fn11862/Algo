@@ -3,21 +3,18 @@
 #include <fstream>
 #include <iostream>
 
-namespace {
-
-	std::string GetFileName(const std::string& file, const char* const extention)
-	{
-		std::string path = "W:\\!AlgoTasks\\TestData\\"; //#TODO: get this right
-		path += file + extention;
-		return path;
-	}
-
-} // unnamed namespace
-
-FileTestData::FileTestData(const std::string& file)
-	: std::ifstream{GetFileName(file, ".in")}
+std::string GetTestCasePath(const std::string& testCaseName, unsigned run, bool input)
 {
-	_check(good()) << "Failed to open" << GetFileName(file, ".in");
+	std::string path = "W:\\!AlgoTasks\\TestData\\"; //#TODO: get from correct folder
+	path += testCaseName + '.' + std::to_string(run);
+	path += input ? ".in" : ".out";
+	return path;
+}
+
+FileTestData::FileTestData(const std::string& file, unsigned run)
+	: std::ifstream{ GetTestCasePath(file, run, true)}
+{
+	_check(good()) << "Failed to open" << GetTestCasePath(file, run, true);
 }
 
 ConsoleTestData& ConsoleTestData::operator >> (bool& val)               { std::cin >> val; return *this; }
@@ -33,17 +30,31 @@ ConsoleTestData& ConsoleTestData::operator >> (float& val)              { std::c
 ConsoleTestData& ConsoleTestData::operator >> (double& val)             { std::cin >> val; return *this; }
 
 
-Result::Result(const std::string& fileName)
+Result::Result(const std::string& fileName, unsigned run)
+	: m_consoleRun{false}
 {
-	std::ifstream ifs{ GetFileName(fileName, ".out") };
+	std::ifstream ifs{ GetTestCasePath(fileName, run, false) };
+	_check(ifs.good());
+
 	std::string line;
 	while (std::getline(ifs, line))
 	{
 		m_expected.push_back(line);
 	}
 }
+
+Result::Result()
+	: m_consoleRun{true}
+{}
+
 Result::~Result()
 {
+	if (m_consoleRun)
+	{
+		//No results available
+		return;
+	}
+
 	if (m_received.size() != m_expected.size())
 	{
 		std::cout << "Invalid result count: received/expected = " << m_received.size() << ' ' << m_expected.size() << '\n';

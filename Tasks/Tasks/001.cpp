@@ -1,11 +1,11 @@
 #include "Headers.h"
 #include <queue>
 
-#TODO: description
-void t001()
+//https://www.hackerrank.com/challenges/equal-stacks/problem
+void t001(unsigned run)
 {
-	FileTestData cin (__FUNCTION__);
-	Result       cout(__FUNCTION__);
+	FileTestData cin (__FUNCTION__, run);
+	Result       cout(__FUNCTION__, run);
 	PerfTimer    perf;
 
 	int sz0, sz1, sz2;
@@ -59,6 +59,5 @@ void t001()
 	}
 
 	perf.PrintResult();
-
 	cout << sum0;
 }

@@ -1,8 +1,7 @@
 #pragma once
 
-bool Is64Bit()
-{
-	return sizeof(int*) == 8;
-}
+bool Is64Bit();
 
 void StartMemLeakDetection();
+
+bool IsFileExists(const char* const pStr);

@@ -5,7 +5,8 @@
 
 struct FileTestData : public std::ifstream
 {
-	explicit FileTestData(const std::string& fileName);
+	//#TODO: pre-parse? Probably file IO + ifstream::operator>> may take a lot of resources compare to algorithm body
+	FileTestData(const std::string& fileName, unsigned run);
 };
 
 struct ConsoleTestData
@@ -26,7 +27,8 @@ struct ConsoleTestData
 class Result
 {
 public:
-	explicit Result(const std::string& fileName);
+	Result(); //Console run
+	Result(const std::string& fileName, unsigned run);
 	~Result();
 
 	template<typename T>
@@ -37,6 +39,9 @@ public:
 	}
 
 private:
+	const bool               m_consoleRun;
 	std::vector<std::string> m_expected;
 	std::vector<std::string> m_received;
 };
+
+std::string GetTestCasePath(const std::string& testCaseName, unsigned run, bool input);
