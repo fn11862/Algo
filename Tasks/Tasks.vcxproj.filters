@@ -11,6 +11,9 @@
     <ClCompile Include="Utils\Misc.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Utils\TestData.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Tasks">
@@ -29,6 +32,9 @@
     </ClInclude>
     <ClInclude Include="Headers.h" />
     <ClInclude Include="Utils\Misc.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\TestData.h">
       <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>

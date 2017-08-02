@@ -5,6 +5,8 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+#include <iostream>
+
 PerfTimer::PerfTimer()
 {
 	LARGE_INTEGER li;
@@ -34,4 +36,10 @@ double PerfTimer::GetMcs() const
 
 	double dtMcs = static_cast<double>(currTime.QuadPart - m_startTime) * 1'000'000 / freq.QuadPart;
 	return dtMcs;
+}
+
+void PerfTimer::PrintResult() const
+{
+	double mcs = GetMcs();
+	std::cout << "Running time = " << mcs << " mcs\n";
 }

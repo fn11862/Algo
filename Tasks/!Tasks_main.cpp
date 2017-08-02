@@ -1,11 +1,17 @@
 #include "Utils\Misc.h"
+#include <exception>
+#include <iostream>
 
 void t001();
 
-int main()
+void main()
+try
 {
 	StartMemLeakDetection();
 
 	t001();
-    return 0;
+}
+catch (std::exception& e)
+{
+	std::cout << "Exception: " << e.what() << '\n';
 }
