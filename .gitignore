@@ -1,0 +1,14 @@
+*.aps
+~*.docx
+~*.xlsx
+*.etl
+*.ipch
+*.opensdf
+*.sdf
+*.suo
+*.user
+
+Debug
+Release
+
+.vs/config/applicationhost.config
