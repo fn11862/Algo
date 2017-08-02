@@ -148,12 +148,14 @@
   <ItemGroup>
     <ClCompile Include="!Tasks_main.cpp" />
     <ClCompile Include="Tasks\001.cpp" />
+    <ClCompile Include="Utils\Misc.cpp" />
     <ClCompile Include="Utils\PerfTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers.h" />
     <ClInclude Include="Utils\Check.h" />
     <ClInclude Include="Utils\PerfTimer.h" />
-    <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Utils\Misc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
