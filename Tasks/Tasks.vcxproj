@@ -147,7 +147,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="!Tasks_main.cpp" />
+    <ClCompile Include="Tasks\!template.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Tasks\001.cpp" />
+    <ClCompile Include="Tasks\002.cpp" />
     <ClCompile Include="Utils\Misc.cpp" />
     <ClCompile Include="Utils\PerfTimer.cpp" />
     <ClCompile Include="Utils\TestData.cpp" />

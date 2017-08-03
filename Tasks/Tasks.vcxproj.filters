@@ -14,6 +14,12 @@
     <ClCompile Include="Utils\TestData.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Tasks\!template.cpp">
+      <Filter>Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\002.cpp">
+      <Filter>Tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Tasks">

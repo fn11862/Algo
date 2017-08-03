@@ -3,26 +3,26 @@
 #include <exception>
 #include <iostream>
 
+#define TEST_CASE t002
+#define STRINGIFY(x) #x
+#define TOSTRING(x) STRINGIFY(x)
+//#TODO: replace macro with more elegant solution
 
-//#TODO: "t001" is taken 3 times in this file, each time I need to change it. 
-// Is there a better solution?
-
-void t001(unsigned run);
+void TEST_CASE(unsigned run);
 
 void main()
 try
 {
 	StartMemLeakDetection();
 
-	for (unsigned run = 0; run < 10; ++run)
+	for (unsigned run = 0; run < 50; ++run)
 	{
-		const auto inputData = GetTestCasePath("t001", run, true);
-		if (!IsFileExists(inputData.c_str()))
+		const auto inputData = GetTestCasePath(TOSTRING(TEST_CASE), run, true);
+		if (IsFileExists(inputData.c_str()))
 		{
-			break;
+			//Test cases might be in not continues order: 0, 5, 10 ...
+			TEST_CASE(run);
 		}
-
-		t001(run);
 	}
 }
 
