@@ -31,6 +31,18 @@ public:
 	Result(const std::string& fileName, unsigned run);
 	~Result();
 
+	Result& operator << (const char* const str)
+	{
+		m_received.push_back(std::string(str));
+		return *this;
+	}
+
+	Result& operator << (const std::string& str)
+	{
+		m_received.push_back(str);
+		return *this;
+	}
+
 	template<typename T>
 	Result& operator << (const T& data)
 	{

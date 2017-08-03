@@ -79,6 +79,7 @@ Result::~Result()
 	std::cout << "Expected       Received\n";
 	for (size_t i = 0; i < m_received.size(); ++i)
 	{
-		std::cout << m_expected[i] << "              " << m_received[i] << "\n\n";
+		std::cout << m_expected[i] << "              " << m_received[i] << "\n";
 	}
+	std::cout << '\n';
 }
