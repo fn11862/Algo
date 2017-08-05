@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include <queue>
 
-//https://www.hackerrank.com/challenges/equal-stacks/problem
+// https://www.hackerrank.com/challenges/equal-stacks/problem
 void t001(unsigned run)
 {
 	FileTestData cin (__FUNCTION__, run);

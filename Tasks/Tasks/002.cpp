@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include <unordered_map>
 
-//https://www.hackerrank.com/challenges/attribute-parser/problem
+// https://www.hackerrank.com/challenges/attribute-parser/problem
 
 std::unordered_map<std::string, std::string> parse(unsigned N, FileTestData& cin)
 {
