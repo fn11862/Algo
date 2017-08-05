@@ -3,6 +3,9 @@
 #include <fstream>
 #include <iostream>
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
 std::string GetTestCasePath(const std::string& testCaseName, unsigned run, bool input)
 {
 	std::string path = "W:\\!AlgoTasks\\TestData\\"; //#TODO: get from correct folder
@@ -32,6 +35,7 @@ ConsoleTestData& ConsoleTestData::operator >> (double& val)             { std::c
 
 Result::Result(const std::string& fileName, unsigned run)
 	: m_consoleRun{false}
+	, m_testDataFile{ GetTestCasePath(fileName, run, false) }
 {
 	std::ifstream ifs{ GetTestCasePath(fileName, run, false) };
 	_check(ifs.good());
@@ -45,6 +49,7 @@ Result::Result(const std::string& fileName, unsigned run)
 
 Result::Result()
 	: m_consoleRun{true}
+	, m_testDataFile{}
 {}
 
 Result::~Result()
@@ -55,9 +60,16 @@ Result::~Result()
 		return;
 	}
 
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN  | FOREGROUND_INTENSITY);
+	std::cout << "Test case: " << m_testDataFile << '\n';
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+
 	if (m_received.size() != m_expected.size())
 	{
-		std::cout << "Invalid result count: received/expected = " << m_received.size() << ' ' << m_expected.size() << '\n';
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);
+		std::cout << "Invalid result count:\n";
+		std::cout << "Received = " << m_received.size() << " Expected = " << m_expected.size() << '\n';
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		return;
 	}
 
@@ -72,14 +84,20 @@ Result::~Result()
 	}
 	if (ok)
 	{
-		std::cout << "Correct!!!\n";
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+		std::cout << "Correct!!!\n\n";
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		return;
 	}
+
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);
+	std::cout << "Invalid result:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 
 	std::cout << "Expected       Received\n";
 	for (size_t i = 0; i < m_received.size(); ++i)
 	{
 		std::cout << m_expected[i] << "              " << m_received[i] << "\n";
 	}
-	std::cout << '\n';
+	std::cout << "\n\n";
 }
