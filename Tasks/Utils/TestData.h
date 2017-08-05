@@ -37,7 +37,6 @@ public:
 
 private:
 	const bool               m_consoleRun;
-	const std::string        m_testDataFile;
 	std::vector<std::string> m_expected;
 	std::vector<std::string> m_received;
 };

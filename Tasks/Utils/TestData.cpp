@@ -21,9 +21,12 @@ FileTestData::FileTestData(const std::string& file, unsigned run)
 }
 
 Result::Result(const std::string& fileName, unsigned run)
-	: m_consoleRun{false}
-	, m_testDataFile{ GetTestCasePath(fileName, run, false) }
+	: m_consoleRun{ false }
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	std::cout << "Test case: " << GetTestCasePath(fileName, run, false) << '\n';
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+
 	std::ifstream ifs{ GetTestCasePath(fileName, run, false) };
 	_check(ifs.good());
 
@@ -35,8 +38,7 @@ Result::Result(const std::string& fileName, unsigned run)
 }
 
 Result::Result()
-	: m_consoleRun{true}
-	, m_testDataFile{}
+	: m_consoleRun{ true }
 {}
 
 Result::~Result()
@@ -46,10 +48,6 @@ Result::~Result()
 		//No results available
 		return;
 	}
-
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN  | FOREGROUND_INTENSITY);
-	std::cout << "Test case: " << m_testDataFile << '\n';
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 
 	if (m_received.size() != m_expected.size())
 	{
