@@ -24,7 +24,7 @@ Result::Result(const std::string& fileName, unsigned run)
 	: m_consoleRun{ false }
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-	std::cout << "Test case: " << GetTestCasePath(fileName, run, false) << '\n';
+	std::cout << "Test case: " << GetTestCasePath(fileName, run, true) << '\n';
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 
 	std::ifstream ifs{ GetTestCasePath(fileName, run, false) };
