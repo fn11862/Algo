@@ -5,7 +5,7 @@
 //Fastest algorithm because of memory zeroing by vector<bool> constructor
 void t003(unsigned run)
 {
-	FileTestData cin(__FUNCTION__, run);
+	FileTestData cin (__FUNCTION__, run);
 	Result       cout(__FUNCTION__, run);
 	PerfTimer    perf;
 

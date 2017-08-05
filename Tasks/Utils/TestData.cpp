@@ -20,19 +20,6 @@ FileTestData::FileTestData(const std::string& file, unsigned run)
 	_check(good()) << "Failed to open" << GetTestCasePath(file, run, true);
 }
 
-ConsoleTestData& ConsoleTestData::operator >> (bool& val)               { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (short& val)              { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (unsigned short& val)     { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (int& val)                { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (unsigned int& val)       { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (long& val)               { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (unsigned long& val)      { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (long long& val)          { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (unsigned long long& val) { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (float& val)              { std::cin >> val; return *this; }
-ConsoleTestData& ConsoleTestData::operator >> (double& val)             { std::cin >> val; return *this; }
-
-
 Result::Result(const std::string& fileName, unsigned run)
 	: m_consoleRun{false}
 	, m_testDataFile{ GetTestCasePath(fileName, run, false) }
