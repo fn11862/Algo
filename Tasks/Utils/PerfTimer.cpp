@@ -9,9 +9,7 @@
 
 PerfTimer::PerfTimer()
 {
-	LARGE_INTEGER li;
-	QueryPerformanceCounter(&li);
-	m_startTime = li.QuadPart;
+	Reset();
 }
 
 double PerfTimer::GetMs() const
@@ -41,5 +39,12 @@ double PerfTimer::GetMcs() const
 void PerfTimer::PrintResult() const
 {
 	double mcs = GetMcs();
-	std::cout << std::fixed << "Running time = " << mcs << " mcs\n";
+	std::cout << "Running time = " << mcs << " mcs\n";
+}
+
+void PerfTimer::Reset()
+{
+	LARGE_INTEGER li;
+	QueryPerformanceCounter(&li);
+	m_startTime = li.QuadPart;
 }
