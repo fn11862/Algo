@@ -39,7 +39,7 @@ double PerfTimer::GetMcs() const
 void PerfTimer::PrintResult() const
 {
 	double mcs = GetMcs();
-	std::cout << "Running time = " << mcs << " mcs\n";
+	std::cout << std::fixed << "Running time = " << mcs << " mcs\n";
 }
 
 void PerfTimer::Reset()
