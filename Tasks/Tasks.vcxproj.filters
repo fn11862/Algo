@@ -26,6 +26,9 @@
     <ClCompile Include="Tasks\004.cpp">
       <Filter>Tasks</Filter>
     </ClCompile>
+    <ClCompile Include="Tasks\005.cpp">
+      <Filter>Tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Tasks">

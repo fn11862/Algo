@@ -1,8 +1,6 @@
 #include "Headers.h"
 
 // https://www.hackerrank.com/challenges/reduced-string/problem
-//using std::cin;
-//using std::cout;
 
 void t004(unsigned run)
 {

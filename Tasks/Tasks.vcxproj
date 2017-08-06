@@ -157,6 +157,7 @@
     <ClCompile Include="Tasks\002.cpp" />
     <ClCompile Include="Tasks\003.cpp" />
     <ClCompile Include="Tasks\004.cpp" />
+    <ClCompile Include="Tasks\005.cpp" />
     <ClCompile Include="Utils\Misc.cpp" />
     <ClCompile Include="Utils\PerfTimer.cpp" />
     <ClCompile Include="Utils\TestData.cpp" />
