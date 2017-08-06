@@ -20,7 +20,7 @@ void t004(unsigned run)
 		}
 		duplicatesFound = false;
 
-		for (int i = 1; i < str.size(); ++i)
+		for (size_t i = 1; i < str.size(); ++i)
 		{
 			if (str[i - 1] == str[i])
 			{
