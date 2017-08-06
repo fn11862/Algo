@@ -15,7 +15,7 @@ void t005(unsigned run)
 	cin >> inputString;
 
 	// Create an alphabet of present chars
-	std::array<bool, 26> alphabet{ 0 };
+	std::array<bool, 26> alphabet{ false };
 	for (char ch : inputString)
 	{
 		alphabet[ch - 'a'] = true;
