@@ -159,6 +159,7 @@
     <ClCompile Include="Tasks\004.cpp" />
     <ClCompile Include="Tasks\005.cpp" />
     <ClCompile Include="Tasks\006.cpp" />
+    <ClCompile Include="Utils\Check.cpp" />
     <ClCompile Include="Utils\Misc.cpp" />
     <ClCompile Include="Utils\PerfTimer.cpp" />
     <ClCompile Include="Utils\TestData.cpp" />

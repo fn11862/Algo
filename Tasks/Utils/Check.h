@@ -12,6 +12,7 @@ public:
 		oss << fileName << '(' << line << ") Failed: ";
 		m_strDescription = oss.str();
 	}
+	Exception(int line, const char* fileName); //GetLastError() implementation
 
 	template <typename T>
 	Exception& operator << (const T& description)
@@ -31,5 +32,6 @@ private:
 	std::string m_strDescription;
 };
 
-#define _throw()						 throw Exception(__FILE__, __LINE__)
-#define _check(expr)     if (!(expr))    throw Exception(__FILE__, __LINE__)
+#define _throw()						throw Exception(__FILE__, __LINE__)
+#define _check(expr)	  if (!(expr))  throw Exception(__FILE__, __LINE__)
+#define _check_GLE(expr)  if (!(expr))  throw Exception(__LINE__, __FILE__)

@@ -6,9 +6,29 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+namespace {
+
+	//Full EXE path is "W:\!AlgoTasks\!out\out_Win32\Debug\Tasks.exe"
+	//"!out" is defined in project properties, so cut the full path to this symbol
+	std::string GetSoluctionFolder()
+	{
+		const int buffSize = 4096;
+		wchar_t buffer[buffSize] = { 0 };
+		_check_GLE(GetModuleFileName(NULL, buffer, buffSize)) << "Can't Get full path";
+
+		std::wstring wstr{ buffer };
+		std::string fullPath{ wstr.cbegin(), wstr.cend() };
+
+		auto pos = fullPath.rfind('!');
+		return fullPath.substr(0, pos);
+	}
+
+} // unnamed namespace
+
 std::string GetTestCasePath(const std::string& testCaseName, unsigned run, bool input)
 {
-	std::string path = "W:\\!AlgoTasks\\TestData\\"; //#TODO: get from correct folder
+	static const std::string testCaseRoot = GetSoluctionFolder() + "TestData\\";
+	std::string path = testCaseRoot;
 	path += testCaseName + '.' + std::to_string(run);
 	path += input ? ".in" : ".out";
 	return path;

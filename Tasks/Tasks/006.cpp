@@ -73,6 +73,5 @@ void t006(unsigned run)
 
 	cout << totalCells;
 
-
 	perf.PrintResult();
 }
