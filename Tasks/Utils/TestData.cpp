@@ -79,10 +79,10 @@ Result::~Result()
 	std::cout << "Invalid result:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 
-	std::cout << "Expected       Received\n";
 	for (size_t i = 0; i < m_received.size(); ++i)
 	{
-		std::cout << m_expected[i] << "              " << m_received[i] << "\n";
+		std::cout << "Expected[" << i << "]  " << m_expected[i] << '\n';
+		std::cout << "Received[" << i << "]  " << m_received[i] << '\n';
 	}
 	std::cout << "\n\n";
 }
