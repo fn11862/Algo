@@ -3,7 +3,7 @@
 #include <exception>
 #include <iostream>
 
-#define TEST_CASE t006
+#define TEST_CASE t007
 #define STRINGIFY(x) #x
 #define TOSTRING(x) STRINGIFY(x)
 //#TODO: replace macro with more elegant solution
@@ -25,7 +25,6 @@ try
 		}
 	}
 }
-
 catch (std::exception& e)
 {
 	std::cout << "Exception: " << e.what() << '\n';

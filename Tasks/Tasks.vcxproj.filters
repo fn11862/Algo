@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="!Tasks_main.cpp" />
-    <ClCompile Include="Tasks\001.cpp">
-      <Filter>Tasks</Filter>
-    </ClCompile>
     <ClCompile Include="Utils\PerfTimer.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
@@ -17,23 +14,29 @@
     <ClCompile Include="Tasks\!template.cpp">
       <Filter>Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="Tasks\002.cpp">
-      <Filter>Tasks</Filter>
-    </ClCompile>
-    <ClCompile Include="Tasks\003.cpp">
-      <Filter>Tasks</Filter>
-    </ClCompile>
-    <ClCompile Include="Tasks\004.cpp">
-      <Filter>Tasks</Filter>
-    </ClCompile>
-    <ClCompile Include="Tasks\005.cpp">
-      <Filter>Tasks</Filter>
-    </ClCompile>
-    <ClCompile Include="Tasks\006.cpp">
-      <Filter>Tasks</Filter>
-    </ClCompile>
     <ClCompile Include="Utils\Check.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\007.cpp">
+      <Filter>Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\001.cpp">
+      <Filter>Tasks\Solved</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\002.cpp">
+      <Filter>Tasks\Solved</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\003.cpp">
+      <Filter>Tasks\Solved</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\004.cpp">
+      <Filter>Tasks\Solved</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\005.cpp">
+      <Filter>Tasks\Solved</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks\006.cpp">
+      <Filter>Tasks\Solved</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +45,9 @@
     </Filter>
     <Filter Include="Utils">
       <UniqueIdentifier>{2ed99652-c231-47c3-9902-fb1c9293a554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tasks\Solved">
+      <UniqueIdentifier>{bb5e9356-ce37-4446-a255-61803cb51ec9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

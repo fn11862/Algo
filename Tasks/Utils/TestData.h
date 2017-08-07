@@ -5,7 +5,6 @@
 
 struct FileTestData : public std::ifstream
 {
-	//#TODO: pre-parse? Probably file IO + ifstream::operator>> may take a lot of resources compare to algorithm body
 	FileTestData(const std::string& fileName, unsigned run);
 };
 
@@ -25,6 +24,16 @@ public:
 	Result& operator << (const std::string& str)
 	{
 		m_received.push_back(str);
+		return *this;
+	}
+
+	// Skip for:  cout << '\n':  (Separation between multiple results)
+	Result& operator << (const char ch)
+	{
+		if (ch != '\n')
+		{
+			m_received.push_back(std::string(1, ch));
+		}
 		return *this;
 	}
 
